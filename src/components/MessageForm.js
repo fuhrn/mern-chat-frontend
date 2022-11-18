@@ -7,12 +7,16 @@ import { AppContext } from "../context/appContext";
 
 function MessageForm() {
   const [message, setMessage] = useState("");
+
   const { socket, currentRoom, setMessages, messages, privateMemberMsg } =
     useContext(AppContext);
+  
   const messageEndRef = useRef(null);
+
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+  
   const user = useSelector((state) => state.user);
 
   function getFormattedDate() {

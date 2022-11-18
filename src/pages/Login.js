@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Spinner from "react-bootstrap/Spinner";
 import { useLoginUserMutation } from '../services/appApi';
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
@@ -38,6 +39,7 @@ function Login() {
         >
           <Form style={{ width: "80%", maxWidth: 500 }} onSubmit={handleLogin}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
+              {error && <p className='alert alert-danger'>{ error.data}</p>}
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
@@ -62,7 +64,7 @@ function Login() {
               />
             </Form.Group>
             <Button variant="primary" type="submit">
-              Submit
+              {isLoading ? <Spinner animation="grow"/> : "Login" }
             </Button>
             <div className="py-4">
               <p className="text-center">

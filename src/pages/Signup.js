@@ -75,6 +75,7 @@ function Signup() {
               <img
                 src={imagePreview || botImg}
                 className="signup-profile-pic"
+                alt="sinup_pic"
               />
               <label htmlFor="image-upload" className="image-upload-label">
                 <i className="fas fa-plus-circle add-picture-icon"></i>
